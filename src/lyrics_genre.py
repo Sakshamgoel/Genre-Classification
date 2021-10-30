@@ -81,30 +81,31 @@ for k, value in genres.items():
 with open('datasets/genre_revised.json', 'w') as f:
     json.dump(genres_new, f)
 
-# drop = list(set(genres.keys()).difference(set(genres_new.keys())))
+drop = list(set(genres.keys()).difference(set(genres_new.keys())))
 
-# csvs = ['new_data_2.csv', 'new_data_3.csv']
-# df = pd.read_csv('datasets/new_data_1.csv')
+csvs = ['new_data_2.csv', 'new_data_3.csv']
+df = pd.read_csv('datasets/new_data_1.csv')
 
-# for csv in csvs:
-#     df = df.append(pd.read_csv('datasets/' + csv))
+for csv in csvs:
+    df = df.append(pd.read_csv('datasets/' + csv))
 
-# print(len(df))
+print(len(df))
 
-# for k in drop:
-#     df = df[df.artist != k]
+for k in drop:
+    df = df[df.artist != k]
 
-# replace = {}
+replace = {}
 
-# for i, row in df.iterrows():
-#     r = row['lyrics']
+for _ , row in df.iterrows():
+    r = row['lyrics']
+    a = row['artist']
 
-#     words = word_tokenize(r)
-#     new_words= [word for word in words if word.isalnum()]
-#     stop_words = set(stopwords.words('english'))
+    words = word_tokenize(r)
+    new_words= [word for word in words if word.isalnum()]
+    stop_words = set(stopwords.words('english'))
 
-#     filtered_sentence = [w for w in new_words if not w in stop_words]
-#     replace[i] = filtered_sentence
+    filtered_sentence = [w for w in new_words if not w in stop_words]
+    replace[a] = filtered_sentence
 
-# with open('datasets/lyrics.json', 'w') as f:
-#     json.dump(replace, f)
+with open('datasets/lyrics.json', 'w') as f:
+    json.dump(replace, f)
