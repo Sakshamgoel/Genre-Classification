@@ -48,8 +48,10 @@ def main():
      # instantiate a spotify instance using your client_id, client_secret, and redirect
     # url from your spotify app     
     scope = "user-library-read"
-    sp = spotipy.Spotify(auth_manager=SpotifyOAuth(client_id='de296bc0ace0461a8d983ca53d171126',
-            client_secret='d33960db9b1c48fbb38ed4dfe1b8e8f3', 
+    client_id
+    client_secret
+    sp = spotipy.Spotify(auth_manager=SpotifyOAuth(client_id=lient_id,
+            client_secret=client_secret, 
             redirect_uri="http://localhost:8888/callback",
             scope=scope))
 
