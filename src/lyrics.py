@@ -37,7 +37,8 @@ def get_lyrics_genius(genius, songs: Dict[str, List[str]]):
 
 def main():
     # instantiate a genius instance using you access token from Genius 
-    genius = Genius('0LJpvYX07PNz6bo-7Y6zXkAv88YWgqwBjxGOUs9PfrmHqGOCFOIZ4d7m_ru9xqpN')
+    token = None
+    genius = Genius(token)
     genius.verbose = False # Turn off status messages
     genius.remove_section_headers = True # Remove section headers (e.g. [Chorus]) from lyrics when searching
 
