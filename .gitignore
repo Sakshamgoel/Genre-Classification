@@ -1,3 +1,7 @@
 venv/
+<<<<<<< HEAD
 .DS_Store
 .ipynb_checkpoints
+=======
+.DS_Store
+>>>>>>> master
